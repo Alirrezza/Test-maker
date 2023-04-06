@@ -15,8 +15,8 @@ def make():
     if (address_entery.get()):
         try:
             counter = add_info_label['text']
-            pathI = os.path.join(address_entery.get(), "input")
-            pathO = os.path.join(address_entery.get(), "output")
+            pathI = os.path.join(address_entery.get(), "in")
+            pathO = os.path.join(address_entery.get(), "out")
             os.makedirs(pathI)
             os.makedirs(pathO)
 
@@ -48,13 +48,13 @@ def make():
 
 
 def make_archive_file(mode, name):
-    files = ("input", "output")
+    files = ("in", "out")
     os.chdir(address_entery.get())
     if (mode == 1):
         patoolib.create_archive(f"{os.getcwd()}/{name}.rar", files)
         messagebox.showinfo(title="exporting", message="successfully done")
     elif (mode == 2):
-        patoolib.create_archive(f"{os.getcwd()}/problem.rar", files)
+        patoolib.create_archive(f"{os.getcwd()}/problem.zip", files)
         messagebox.showinfo(title="exporting", message="successfully done")
     else:
         messagebox.showerror(
